@@ -48,6 +48,11 @@
   background-color: #1fe7c6;
 }
 
+.button:active {
+  border-radius: 20px;
+  background-color: #0bddba;
+}
+
 .clicked {
   border-radius: 20px;
   background-color: #0bddba;
@@ -56,14 +61,16 @@
 .text {
   margin-top: 100px;
   width: 915px;
-  height: 100px;
+  height: 200px;
   background-color: #03a17f;
   color: aquamarine;
   letter-spacing: 0.05rem;
 }
 
-.system-key {
+.dark-key {
   font-size: 20px;
+  background-color: #06e09f;
+  color: white;
 }
 
 .backspc {

@@ -20,27 +20,28 @@ document.body.append(textarea);
 let numbers = [{value: '`', rusValue: 'ё', code: 'Backquote'}, {value: '1', rusValue: '1', code: 'Digit1'}, {value: '2', rusValue: '2', code: 'Digit2'}, 
 {value: '3', rusValue: '3', code: 'Digit3'}, {value: '4', rusValue: '4', code: 'Digit4'}, {value: '5', rusValue: '5', code: 'Digit5'},
 {value: '6', rusValue: '6', code: 'Digit6'}, {value: '7', rusValue: '7', code: 'Digit7'}, {value: '8', rusValue: '8', code: 'Digit8'}, {value: '9', rusValue: '9', code: 'Digit9'},
-{value: '0', rusValue: '0', code: 'Digit0'}, {value: '-', rusValue: '-', code: 'Minus'}, {value: '=', rusValue: '=', code: 'Equal'}, {class: 'system', name: 'backspase', code: 'Backspace'}];
+{value: '0', rusValue: '0', code: 'Digit0'}, {value: '-', rusValue: '-', code: 'Minus'}, {value: '=', rusValue: '=', code: 'Equal'}, {class: 'system', type: 'multilang', name: 'backspase', code: 'Backspace'}];
 
 
-let lettersFirstRow = [{value: '\t', code: 'Tab', class: 'system', name: 'Tab'}, {value: 'q', rusValue: 'й', code: 'KeyQ'}, {value: 'w', rusValue: 'ц', code: 'KeyW'}, {value: 'e', rusValue: 'у', code: 'KeyE'}, 
+let lettersFirstRow = [{value: '\t', rusValue: '\t', code: 'Tab', type: 'multilang', name: 'Tab'}, {value: 'q', rusValue: 'й', code: 'KeyQ'}, {value: 'w', rusValue: 'ц', code: 'KeyW'}, {value: 'e', rusValue: 'у', code: 'KeyE'}, 
 {value: 'r', rusValue: 'к', code: 'KeyR'}, {value: 't', rusValue: 'е', code: 'KeyT'}, {value: 'y', rusValue: 'н', code: 'KeyY'},
 {value: 'u', rusValue: 'г', code: 'KeyU'}, {value: 'i', rusValue: 'ш', code: 'KeyI'}, {value: 'o', rusValue: 'щ', code: 'KeyO'}, {value: 'p', rusValue: 'з', code: 'KeyP'},
-{value: '[', rusValue: 'х', code: 'BracketLeft'}, {value: ']', rusValue: 'ъ', code: 'BracketRight'}, {value: '\\', rusValue: '\\', code: 'IntlYen'}, {class: 'system', name: 'del', code: 'Delete'}];
+{value: '[', rusValue: 'х', code: 'BracketLeft'}, {value: ']', rusValue: 'ъ', code: 'BracketRight'}, {value: '\\', rusValue: '\\', code: 'IntlYen'}, {class: 'system', type: 'multilang', name: 'del', code: 'Delete'}];
 
 
-let letters = [{ code: 'CapsLock', class: 'system', name: 'caps lock'}, {value: 'a', rusValue: 'ф', code: 'KeyA'}, {value: 's', rusValue: 'ы', code: 'KeyS'}, 
+let letters = [{ code: 'CapsLock', class: 'system', type: 'multilang', name: 'caps lock'}, {value: 'a', rusValue: 'ф', code: 'KeyA'}, {value: 's', rusValue: 'ы', code: 'KeyS'}, 
 {value: 'd', rusValue: 'в', code: 'KeyD'}, {value: 'f', rusValue: 'а', code: 'KeyF'}, {value: 'g', rusValue: 'п', code: 'KeyG'}, {value: 'h', rusValue: 'р', code: 'KeyH'},
 {value: 'j', rusValue: 'о', code: 'KeyJ'}, {value: 'k', rusValue: 'л', code: 'KeyK'}, {value: 'l', rusValue: 'д', code: 'KeyL'}, {value: ':', rusValue: 'ж', code: 'Semicolon'},
-{value: "'", rusValue: 'э', code: 'Quote'}, {value: '\n', code: 'Enter', class: 'system', name: 'Enter'}];
+{value: "'", rusValue: 'э', code: 'Quote'}, {value: '\n', code: 'Enter', class: 'system', type: 'multilang', name: 'Enter'}];
 
-let letters2 = [{value: 'Shift', rusValue: 'Shift', code: 'ShiftLeft', class: 'system', name: 'shift'}, {value: 'z', rusValue: 'я', code: 'KeyZ'}, {value: 'x', rusValue: 'ч', code: 'KeyX'}, {value: 'c', rusValue: 'с', code: 'KeyC'},
+let letters2 = [{value: 'Shift', rusValue: 'Shift', code: 'ShiftLeft', class: 'system', type: 'multilang', name: 'shift'}, {value: 'z', rusValue: 'я', code: 'KeyZ'}, {value: 'x', rusValue: 'ч', code: 'KeyX'}, {value: 'c', rusValue: 'с', code: 'KeyC'},
 {value: 'v', rusValue: 'м', code: 'KeyV'}, {value: 'b', rusValue: 'и', code: 'KeyB'},
 {value: 'n', rusValue: 'т', code: 'KeyN'}, {value: 'm', rusValue: 'ь', code: 'KeyM'}, {value: ',', rusValue: 'б', code: 'Comma'}, {value: '.', rusValue: 'ю', code: 'Period'},
-{value: '/', rusValue: '.', code: 'Slash'}, {value: '▲', rusValue: '▲', code: 'ArrowUp'}, {class: 'system', name: 'Shift', code: 'ShiftRight'}];
+{value: '/', rusValue: '.', code: 'Slash'}, {value: '▲', rusValue: '▲', code: 'ArrowUp'}, {class: 'system', type: 'multilang', name: 'Shift', code: 'ShiftRight'}];
 
-let special = [{code: 'ControlLeft', class: 'system', name: 'ctrl'}, {code: 'MetaLeft', class: 'system', name: 'win'}, {code: 'AltLeft', class: 'system', name: 'alt'}, {code: 'Space', class: 'system', name: ''}, {code: 'AltRight', class: 'system', name: 'alt'}, 
-{value: '◄', rusValue: '◄', code: 'ArrowLeft'}, {value: '▼', rusValue: '▼', code: 'ArrowDown'}, {value: '►', rusValue: '►', code: 'ArrowRight'}, {code: 'ControlRight', class: 'system', name: 'ctrl'} ];
+let special = [{code: 'ControlLeft', class: 'system', type: 'multilang', name: 'ctrl'}, {code: 'MetaLeft', class: 'system', type: 'multilang', name: 'win'}, {code: 'AltLeft', class: 'system', type: 'multilang', name: 'alt'}, 
+{value: ' ', rusValue: ' ', code: 'Space', type: 'multilang', name: ' '}, {code: 'AltRight', class: 'system',  type: 'multilang', name: 'alt'}, 
+{value: '◄', rusValue: '◄', code: 'ArrowLeft'}, {value: '▼', rusValue: '▼', code: 'ArrowDown'}, {value: '►', rusValue: '►', code: 'ArrowRight'}, {code: 'ControlRight', class: 'system',  type: 'multilang', name: 'ctrl'} ];
 
 
 
@@ -70,11 +71,11 @@ function makeElement(letters, row){
         }
 
        // div.innerHTML = language === 'ru'? letter.rusValue : letter.value;
-      if (letter.class == 'system'){
+
+      if (letter.type == 'multilang'){
             div.innerHTML = letter.name;
-        }
-         else {
-        div.innerHTML = letter.value;
+        } else {
+            div.innerHTML = letter.value;
         
          }
 
@@ -86,37 +87,40 @@ function makeElement(letters, row){
         } 
         
         if (letter.code == 'Backspace') {
-            div.classList.add('backspc', 'system-key');
+            div.classList.add('backspc', 'dark-key');
         }
         
         if (letter.code == 'Tab') {
-            div.classList.add('tab', 'system-key');
+            div.classList.add('tab', 'dark-key');
         }
 
 
         if (letter.code == 'ShiftLeft') {
-            div.classList.add('shift', 'system-key');
+            div.classList.add('shift', 'dark-key');
         }
 
         if (letter.code == 'CapsLock') {
-            div.classList.add('caps', 'system-key');
+            div.classList.add('caps', 'dark-key');
         }
 
-        
         if (letter.code == 'ShiftRight' || letter.code == 'Enter') {
-            div.classList.add('shift-Right', 'system-key');
+            div.classList.add('shift-Right', 'dark-key');
         }
 
         if (letter.name == 'ctrl' || letter.name == 'del' || letter.name == 'win' || letter.name == 'alt') {
-            div.classList.add('system-key');
+            div.classList.add('dark-key');
         }
         
         if (letter.code == 'Space') {
-            div.classList.add('space', 'system-key');
+            div.classList.add('space', 'dark-key');
+        }
+
+        if (letter.class == 'system') {
+            div.classList.add('system');
         }
 
         function hasChanged(){
-            if (letter.class == 'system'){
+            if (letter.type == 'multilang'){
                 div.innerHTML = letter.name;
             } else {
                 div.innerHTML = hasChanged2() ? letter.rusValue : letter.value;
@@ -125,32 +129,21 @@ function makeElement(letters, row){
             //localStorage.setItem('lang_keyboard', hasChanged2() ? 'ru' : 'en');
         }
         
-    /*     function hasChanged(){
-            count += 1;
-            if(count % 2 !== 0){
-                div.innerHTML = `${letter.rusValue}`;
-            }
-            else {
-                div.innerHTML = `${letter.value}`;
-            }
-        } */
 
-        function isCaps(){
+     /*    function isCaps(){
             div.innerHTML = div.innerHTML.toUpperCase();
         }
-
-        /* document.addEventListener('keyup', function(event){
+*/
+        document.addEventListener('keyup', function(event){
             if (event.getModifierState("CapsLock")) {
                 div.innerHTML = div.innerHTML.toUpperCase();
-                textarea +=  div.innerHTML.toUpperCase();
               } 
             else {
                 div.innerHTML = div.innerHTML.toLowerCase();
-                textarea +=  div.innerHTML;
             }
-        });
- */
-   /*      changeLang(
+        }); 
+        
+      /*   changeLang(
             isCaps,
             'CapsLock'
         );
@@ -159,9 +152,9 @@ function makeElement(letters, row){
             hasChanged,
             'ControlLeft',
             'ShiftLeft'
-        );
-        
-        div.dataset.code = letter.code;
+        ); 
+         
+      div.dataset.code = letter.code;
 
        /*  div.addEventListener('mousedown', function() {
             if (letter.code == 'Delete'){
@@ -169,10 +162,16 @@ function makeElement(letters, row){
             }
         });
  */
-        div.addEventListener('mousedown', function() {
+       /*  div.addEventListener('mousedown', function() {
             div.classList.add('clicked');
-            textarea.value += letter.value;
-        });
+            if(letter.class == 'system'){
+                textarea.value += '';
+            } else {
+                textarea.value += letter.value;
+            }
+        }); */
+
+
 
         document.addEventListener('mouseup', function() {
             div.classList.remove('clicked');
@@ -183,8 +182,12 @@ function makeElement(letters, row){
 
         document.addEventListener('keydown', function(event){
             if(event.code == letter.code && textarea !== document.activeElement ){
-                textarea.value += letter.value;
-            }
+                if(letter.class == 'system'){
+                    textarea.value += '';
+                } else {
+                    textarea.value += letter.value;
+                }
+                }           
         });
     });
 }
@@ -221,15 +224,25 @@ makeElement(letters2, row2);
 makeElement(special, lastRow);
 
 
-function keypressed(event) {
-    let actoy = document.querySelector(`[data-code = ${event.code}]`);
-    if (actoy){
-        actoy.classList.toggle('clicked');
+function keypressedAnimation(event) {
+    let pressed = document.querySelector(`[data-code = ${event.code}]`);
+    if (pressed){
+        pressed.classList.toggle('clicked');
     }
 }
 
-document.addEventListener('keydown', keypressed);
-document.addEventListener('keyup', keypressed);
-row.addEventListener('click', keypressed);
+document.addEventListener('keydown', keypressedAnimation);
+document.addEventListener('keyup', keypressedAnimation);
+row.addEventListener('click', keypressedAnimation);
 
 
+keyboard.addEventListener('click', (event) => {
+    const isButton = event.target.classList.contains('button');
+    const isSystem = event.target.classList.contains('system');
+    const isTab = event.target.classList.contains('tab');
+    if (isTab){
+        textarea.value += '\t';
+    } else if (isButton && !isSystem){
+        textarea.value += event.target.innerHTML;
+    }
+});
