@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap');
+
+.button, .text {
+    font-family: 'Annie Use Your Telescope', cursive;
+    font-size: 30px;
+    font-weight: 100;
+}
+
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    width: 915px;
+    height: 300px;
+    border: 2px solid rgb(3, 136, 85);
+}
+
+.row {
+    display: flex;
+    //margin-bottom: 50px;
+}
+
+
+.button {
+    background-color: aquamarine;
+    color: rgb(3, 161, 127);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 58px;
+    height: 58px;
+    border: 1px solid white;
+    border-radius: 5px;
+    margin: 0, auto;
+    &:hover {
+        background-color:rgb(31, 231, 198);
+    }
+}
+
+.clicked {
+    border-radius: 20px;
+    background-color: rgb(11, 221, 186);
+}
+
+
+.text {
+    margin-top: 100px;
+    width: 915px;
+    height: 100px;
+    background-color: rgb(3, 161, 127);
+    color:  aquamarine;
+    letter-spacing: 0.05rem;
+}
+
+.system-key {
+    font-size: 20px;
+}
+
+.backspc {
+    width: 135px;
+}
+
+.tab {
+    width: 75px;
+
+}
+
+.caps {
+    width: 135px; 
+}
+
+.shift {
+    width: 135px; 
+}
+
+.shift-Right {
+    width: 118px; 
+}
+
+.space {
+    width: 435px; 
+}
