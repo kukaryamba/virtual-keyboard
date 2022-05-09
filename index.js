@@ -1,15 +1,3 @@
-//import styles 'style.scss';
-
-/* let localLanguage = localStorage.getItem('lang_keyboard');
-let language = localLanguage ? localLanguage : 'en'; */
-
-/* let lang = 'en';
-
-function changeLang(){
-    lang = lang == 'en' ? 'ru' : 'en';
-}
-  */
-
 let wrapper =  document.createElement('div');
 wrapper.className ='wrapper';
 document.body.append(wrapper);
@@ -77,13 +65,10 @@ function makeElement(letters, row){
             });
         }
 
-       // div.innerHTML = language === 'ru'? letter.rusValue : letter.value;
-
       if (letter.type == 'multilang'){
             div.innerHTML = letter.name;
         } else {
             div.innerHTML = letter.value;
-        
          }
 
         let count = 0;
@@ -122,6 +107,10 @@ function makeElement(letters, row){
             div.classList.add('space', 'dark-key');
         }
 
+        if (letter.code == 'Enter') {
+            div.classList.add('enter');
+        }
+
         if (letter.class == 'system') {
             div.classList.add('system');
         }
@@ -132,15 +121,9 @@ function makeElement(letters, row){
             } else {
                 div.innerHTML = hasChanged2() ? letter.rusValue : letter.value;
             }
-            
-            //localStorage.setItem('lang_keyboard', hasChanged2() ? 'ru' : 'en');
         }
         
 
-     /*    function isCaps(){
-            div.innerHTML = div.innerHTML.toUpperCase();
-        }
-*/
         document.addEventListener('keyup', function(event){
             if (event.getModifierState("CapsLock")) {
                 div.innerHTML = div.innerHTML.toUpperCase();
@@ -149,35 +132,20 @@ function makeElement(letters, row){
                 div.innerHTML = div.innerHTML.toLowerCase();
             }
         }); 
-        
-      /*   changeLang(
-            isCaps,
-            'CapsLock'
-        );
- */
+
         changeLang(
             hasChanged,
             'ControlLeft',
             'ShiftLeft'
         ); 
          
-      div.dataset.code = letter.code;
+        
 
-       /*  div.addEventListener('mousedown', function() {
+        div.addEventListener('mousedown', function() {
             if (letter.code == 'Delete'){
-                textarea.value.slice(textarea.value[length-2]);
+                textarea.value.slice(textarea.value[length-3]);
             }
         });
- */
-       /*  div.addEventListener('mousedown', function() {
-            div.classList.add('clicked');
-            if(letter.class == 'system'){
-                textarea.value += '';
-            } else {
-                textarea.value += letter.value;
-            }
-        }); */
-
 
 
         document.addEventListener('mouseup', function() {
@@ -186,6 +154,8 @@ function makeElement(letters, row){
         });
         
         row.append(div);
+
+        div.dataset.code = letter.code;
 
         document.addEventListener('keydown', function(event){
             if(event.code == letter.code && textarea !== document.activeElement ){
@@ -247,8 +217,11 @@ keyboard.addEventListener('click', (event) => {
     const isButton = event.target.classList.contains('button');
     const isSystem = event.target.classList.contains('system');
     const isTab = event.target.classList.contains('tab');
+    const isEnter = event.target.classList.contains('enter');
     if (isTab){
         textarea.value += '\t';
+    } else if (isEnter) {
+        textarea.value += '\n';
     } else if (isButton && !isSystem){
         textarea.value += event.target.innerHTML;
     }
