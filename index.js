@@ -1,3 +1,15 @@
+//import styles 'style.scss';
+
+/* let localLanguage = localStorage.getItem('lang_keyboard');
+let language = localLanguage ? localLanguage : 'en'; */
+
+/* let lang = 'en';
+
+function changeLang(){
+    lang = lang == 'en' ? 'ru' : 'en';
+}
+  */
+
 let textarea = document.createElement('textarea');
 textarea.className ='text';
 textarea.value = '';
@@ -207,3 +219,17 @@ makeElement(lettersFirstRow, row1);
 makeElement(letters, row);
 makeElement(letters2, row2);
 makeElement(special, lastRow);
+
+
+function keypressed(event) {
+    let actoy = document.querySelector(`[data-code = ${event.code}]`);
+    if (actoy){
+        actoy.classList.toggle('clicked');
+    }
+}
+
+document.addEventListener('keydown', keypressed);
+document.addEventListener('keyup', keypressed);
+row.addEventListener('click', keypressed);
+
+

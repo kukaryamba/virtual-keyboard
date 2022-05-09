@@ -1,3 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap");
+.button, .text {
+  font-family: 'Annie Use Your Telescope', cursive;
+  font-size: 30px;
+  font-weight: 100;
+}
+
+.keyboard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 915px;
+  height: 300px;
+  border: 2px solid #038855;
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.button {
+  background-color: aquamarine;
+  color: #03a17f;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  width: 58px;
+  height: 58px;
+  border: 1px solid white;
+  border-radius: 5px;
+  margin: 0, auto;
+}
+
+.button:hover {
+  background-color: #1fe7c6;
+}
+
+.clicked {
+  border-radius: 20px;
+  background-color: #0bddba;
+}
+
 .text {
   margin-top: 100px;
   width: 915px;
@@ -5,5 +60,33 @@
   background-color: #03a17f;
   color: aquamarine;
   letter-spacing: 0.05rem;
+}
+
+.system-key {
+  font-size: 20px;
+}
+
+.backspc {
+  width: 135px;
+}
+
+.tab {
+  width: 75px;
+}
+
+.caps {
+  width: 135px;
+}
+
+.shift {
+  width: 135px;
+}
+
+.shift-Right {
+  width: 118px;
+}
+
+.space {
+  width: 435px;
 }
 /*# sourceMappingURL=style.css.map */
