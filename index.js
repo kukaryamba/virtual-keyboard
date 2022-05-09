@@ -10,12 +10,19 @@ function changeLang(){
 }
   */
 
+let wrapper =  document.createElement('div');
+wrapper.className ='wrapper';
+document.body.append(wrapper);
+
+
 let textarea = document.createElement('textarea');
 textarea.className ='text';
 textarea.value = '';
 textarea.autofocus = true;
 textarea.id = 'textarea';
-document.body.append(textarea);
+wrapper.append(textarea);
+
+
 
 let numbers = [{value: '`', rusValue: 'ё', code: 'Backquote'}, {value: '1', rusValue: '1', code: 'Digit1'}, {value: '2', rusValue: '2', code: 'Digit2'}, 
 {value: '3', rusValue: '3', code: 'Digit3'}, {value: '4', rusValue: '4', code: 'Digit4'}, {value: '5', rusValue: '5', code: 'Digit5'},
@@ -194,7 +201,7 @@ function makeElement(letters, row){
 
 let keyboard = document.createElement('div');
 keyboard.className = 'keyboard';
-document.body.append(keyboard); 
+wrapper.append(keyboard); 
 
 let numRow = document.createElement('div');
 numRow.className = 'row';
@@ -246,3 +253,10 @@ keyboard.addEventListener('click', (event) => {
         textarea.value += event.target.innerHTML;
     }
 });
+
+let p = document.createElement('p');
+p.className ='hint';
+p.innerHTML = "Клавиатура создана в операционной системе Windows. <br> Для переключения языка комбинация: левыe ctrl + shift";
+wrapper.append(p);
+
+

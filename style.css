@@ -1,6 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@400&display=swap");
+.wrapper {
+  width: 915px;
+  margin: 0 auto;
+}
+
 .button, .text {
-  font-family: 'Annie Use Your Telescope', cursive;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
   font-size: 30px;
   font-weight: 100;
 }
@@ -95,5 +100,10 @@
 
 .space {
   width: 435px;
+}
+
+.hint {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */
