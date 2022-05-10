@@ -45,25 +45,6 @@ function makeElement(letters, row){
         let div = document.createElement('div');
         div.className ='button';
 
-        function changeLang(func, ...codes){
-            let pressed = new Set();
-            document.addEventListener('keydown', function (event){
-                pressed.add(event.code);
-        
-                for (let code of codes){
-                    if(!pressed.has(code)){
-                        return;
-                    }
-                }
-
-                pressed.clear();
-                func();
-            });   
-        
-            document.addEventListener('keyup', function(event) {
-                pressed.delete(event.code);
-            });
-        }
 
       if (letter.type == 'multilang'){
             div.innerHTML = letter.name;
@@ -115,6 +96,26 @@ function makeElement(letters, row){
             return count % 2 !== 0 ? true : false;
         } 
         
+        function changeLang(func, ...codes){
+            let pressed = new Set();
+            document.addEventListener('keydown', function (event){
+                pressed.add(event.code);
+        
+                for (let code of codes){
+                    if(!pressed.has(code)){
+                        return;
+                    }
+                }
+
+                pressed.clear();
+                func();
+            });   
+        
+            document.addEventListener('keyup', function(event) {
+                pressed.delete(event.code);
+            });
+        }
+
         function hasChanged(){
             if (letter.type == 'multilang'){
                 div.innerHTML = letter.name;
@@ -139,18 +140,7 @@ function makeElement(letters, row){
             'ShiftLeft'
         ); 
          
-
-        function isCaps(){
-            div.innerHTML = div.innerHTML.toUpperCase();
-        }
         
-        changeLang(
-            isCaps,
-            'CapsLock'
-        ); 
-         
-
-
         document.addEventListener('mouseup', function() {
             div.classList.remove('clicked');
             
