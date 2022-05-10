@@ -21,7 +21,7 @@ let numbers = [{value: '`', rusValue: 'ё', code: 'Backquote'}, {value: '1', rus
 let lettersFirstRow = [{value: '\t', rusValue: '\t', code: 'Tab', type: 'multilang', name: 'Tab'}, {value: 'q', rusValue: 'й', code: 'KeyQ'}, {value: 'w', rusValue: 'ц', code: 'KeyW'}, {value: 'e', rusValue: 'у', code: 'KeyE'}, 
 {value: 'r', rusValue: 'к', code: 'KeyR'}, {value: 't', rusValue: 'е', code: 'KeyT'}, {value: 'y', rusValue: 'н', code: 'KeyY'},
 {value: 'u', rusValue: 'г', code: 'KeyU'}, {value: 'i', rusValue: 'ш', code: 'KeyI'}, {value: 'o', rusValue: 'щ', code: 'KeyO'}, {value: 'p', rusValue: 'з', code: 'KeyP'},
-{value: '[', rusValue: 'х', code: 'BracketLeft'}, {value: ']', rusValue: 'ъ', code: 'BracketRight'}, {value: '\\', rusValue: '\\', code: 'IntlYen'}, {class: 'system', type: 'multilang', name: 'del', code: 'Delete'}];
+{value: '[', rusValue: 'х', code: 'BracketLeft'}, {value: ']', rusValue: 'ъ', code: 'BracketRight'}, {value: '\\', rusValue: '\\', code: 'Backslash'}, {class: 'system', type: 'multilang', name: 'del', code: 'Delete'}];
 
 
 let letters = [{ code: 'CapsLock', class: 'system', type: 'multilang', name: 'caps lock'}, {value: 'a', rusValue: 'ф', code: 'KeyA'}, {value: 's', rusValue: 'ы', code: 'KeyS'}, 
@@ -73,10 +73,6 @@ function makeElement(letters, row){
 
         let count = 0;
 
-        function hasChanged2(){
-            count += 1;
-            return count % 2 !== 0 ? true : false;
-        } 
         
         if (letter.code == 'Backspace') {
             div.classList.add('backspc', 'dark-key');
@@ -85,7 +81,6 @@ function makeElement(letters, row){
         if (letter.code == 'Tab') {
             div.classList.add('tab', 'dark-key');
         }
-
 
         if (letter.code == 'ShiftLeft') {
             div.classList.add('shift', 'dark-key');
@@ -115,15 +110,20 @@ function makeElement(letters, row){
             div.classList.add('system');
         }
 
+        function countLangChanges(){
+            count += 1;
+            return count % 2 !== 0 ? true : false;
+        } 
+        
         function hasChanged(){
             if (letter.type == 'multilang'){
                 div.innerHTML = letter.name;
             } else {
-                div.innerHTML = hasChanged2() ? letter.rusValue : letter.value;
+                div.innerHTML = countLangChanges() ? letter.rusValue : letter.value;
             }
         }
         
-
+        
         document.addEventListener('keyup', function(event){
             if (event.getModifierState("CapsLock")) {
                 div.innerHTML = div.innerHTML.toUpperCase();
@@ -139,13 +139,16 @@ function makeElement(letters, row){
             'ShiftLeft'
         ); 
          
-        
 
-        div.addEventListener('mousedown', function() {
-            if (letter.code == 'Delete'){
-                textarea.value.slice(textarea.value[length-3]);
-            }
-        });
+        function isCaps(){
+            div.innerHTML = div.innerHTML.toUpperCase();
+        }
+        
+        changeLang(
+            isCaps,
+            'CapsLock'
+        ); 
+         
 
 
         document.addEventListener('mouseup', function() {
@@ -231,5 +234,3 @@ let p = document.createElement('p');
 p.className ='hint';
 p.innerHTML = "Клавиатура создана в операционной системе Windows. <br> Для переключения языка комбинация: левыe ctrl + shift";
 wrapper.append(p);
-
-
